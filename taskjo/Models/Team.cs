@@ -8,11 +8,11 @@ using System.Web;
 
 namespace taskjo.Models
 {
-    public class group_tbl
+    public class Team
     {
-        public group_tbl()
+        public Team()
         {
-            this.prjects = new HashSet<project_tbl>();
+            this.prjects = new HashSet<Project>();
         }
 
         [Key]
@@ -21,7 +21,7 @@ namespace taskjo.Models
         public string groupName { get; set; }
         public string des { get; set; }
 
-        public virtual ICollection<project_tbl> prjects { get; set; }
+        public virtual ICollection<Project> prjects { get; set; }
        
     }
 }

@@ -37,8 +37,8 @@ namespace IdentitySample.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<taskjo.Models.project_tbl> project_tbl { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Project> project_tbl { get; set; }
 
-        public System.Data.Entity.DbSet<taskjo.Models.group_tbl> group_tbl { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Team> group_tbl { get; set; }
     }
 }

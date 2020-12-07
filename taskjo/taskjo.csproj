@@ -184,10 +184,10 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\friend_tbl.cs" />
-    <Compile Include="Models\group_tbl.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\project_tbl.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Models\project_users_tbl.cs" />
     <Compile Include="Models\user_tbl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

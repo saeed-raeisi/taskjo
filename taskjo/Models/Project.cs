@@ -7,7 +7,7 @@ using System.Web;
 
 namespace taskjo.Models
 {
-    public class project_tbl
+    public class Project
     {
         [Key]
         public int projectId { get; set; }
@@ -19,7 +19,8 @@ namespace taskjo.Models
         //public virtual project_users_tbl project_user { get; set; }
         public int groupId { get; set; }
         [ForeignKey("groupId")]
-        public virtual group_tbl group { get; set; }
+        public virtual Team group { get; set; }
+
 
     }
 }

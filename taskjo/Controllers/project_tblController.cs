@@ -33,7 +33,7 @@ namespace taskjo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            project_tbl project_tbl = await db.project_tbl.FindAsync(id);
+            Project project_tbl = await db.project_tbl.FindAsync(id);
             if (project_tbl == null)
             {
                 return HttpNotFound();
@@ -53,7 +53,7 @@ namespace taskjo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "projectId,projectAdmin,projectName,des,groupId")] project_tbl project_tbl)
+        public async Task<ActionResult> Create([Bind(Include = "projectId,projectAdmin,projectName,des,groupId")] Project project_tbl)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace taskjo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            project_tbl project_tbl = await db.project_tbl.FindAsync(id);
+            Project project_tbl = await db.project_tbl.FindAsync(id);
             if (project_tbl == null)
             {
                 return HttpNotFound();
@@ -87,7 +87,7 @@ namespace taskjo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "projectId,projectAdmin,projectName,des,groupId")] project_tbl project_tbl)
+        public async Task<ActionResult> Edit([Bind(Include = "projectId,projectAdmin,projectName,des,groupId")] Project project_tbl)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace taskjo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            project_tbl project_tbl = await db.project_tbl.FindAsync(id);
+            Project project_tbl = await db.project_tbl.FindAsync(id);
             if (project_tbl == null)
             {
                 return HttpNotFound();
@@ -119,7 +119,7 @@ namespace taskjo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            project_tbl project_tbl = await db.project_tbl.FindAsync(id);
+            Project project_tbl = await db.project_tbl.FindAsync(id);
             db.project_tbl.Remove(project_tbl);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
