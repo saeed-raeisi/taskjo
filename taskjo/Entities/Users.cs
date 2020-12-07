@@ -8,7 +8,7 @@ using System.Web;
 
 namespace taskjo.Models
 {
-    public class user_tbl
+    public class Users
     {
         [Key]
         public int userId { get; set; }
@@ -19,7 +19,7 @@ namespace taskjo.Models
         public string lname { get; set; }
         public string email { get; set; }
 
-        public virtual friend_tbl friend { get; set; }
+        public virtual Friend friend { get; set; }
         public virtual project_users_tbl project_users { get; set; }
 
     }

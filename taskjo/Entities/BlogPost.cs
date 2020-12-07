@@ -11,7 +11,7 @@ namespace taskjo.Models
     {
         public project_users_tbl()
         {
-            this.users = new HashSet<user_tbl>();
+            this.users = new HashSet<Users>();
         }
 
         [Key]
@@ -23,7 +23,7 @@ namespace taskjo.Models
         public int userId { get; set; }
 
         [ForeignKey("userId")]
-        public virtual ICollection<user_tbl> users { get; set; }
+        public virtual ICollection<Users> users { get; set; }
       
     }
 }
