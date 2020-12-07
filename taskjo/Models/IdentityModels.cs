@@ -42,6 +42,7 @@ namespace IdentitySample.Models
         public System.Data.Entity.DbSet<taskjo.Models.Team> Team { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Skills> Skills { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.TeamRule> TeamRules { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Phase> phases { get; set; }
 
 
     }
