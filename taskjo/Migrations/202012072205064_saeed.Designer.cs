@@ -7,13 +7,13 @@ namespace taskjo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initial_database : IMigrationMetadata
+    public sealed partial class saeed : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initial_database));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(saeed));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011100707597_initial_database"; }
+            get { return "202012072205064_saeed"; }
         }
         
         string IMigrationMetadata.Source

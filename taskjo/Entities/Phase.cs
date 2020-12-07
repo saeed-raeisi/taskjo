@@ -10,7 +10,7 @@ namespace taskjo.Models
     {
         [Key]
         public int phaseId { get; set; }
-        public  string phaseName { get; set; }
+        public string phaseName { get; set; }
         public string phaseTitle { get; set; }
         public string phasePicture { get; set; }
         public string phaseBacklog { get; set; }
