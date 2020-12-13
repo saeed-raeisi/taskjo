@@ -23,11 +23,17 @@ namespace taskjo.Models
         public string phaseTitle { get; set; }
         [DisplayName("وضعیت فاز")]
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
-        public int phaseState { get; set; }
+        //[ForeignKey("state")]
+        //public int phaseStateId { get; set; }
 
         public virtual ICollection<Task> tasks  {get; set; }
         public   virtual Project project { get; set; }
-        
+        //public virtual SprintBackLog sprintBackLog { get; set; }
+        public virtual State state { get; set; }
+
+
+
+
 
     }
 }

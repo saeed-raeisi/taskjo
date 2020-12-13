@@ -16,8 +16,8 @@ namespace taskjo.Models
             this.prjects = new HashSet<Project>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, ForeignKey("teamMembers")]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int teamId { get; set; }
         [DisplayName("مدیر تیم")]
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
@@ -27,10 +27,19 @@ namespace taskjo.Models
         public string teamName { get; set; }
         [DisplayName("توضیحات  تیم")]
         public string teamDesc { get; set; }
-        public DateTime teamDate { get; set; }
+        public DateTime teamStartDate { get; set; }
+
+        public string teamLogo { get; set; }
+
+        public char enChar { get; set; }
+
+
+
+
 
         //navigation
         public virtual ICollection<Project> prjects { get; set; }
+        public virtual TeamMembers teamMembers { get; set; }
        
     }
 }

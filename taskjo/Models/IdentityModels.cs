@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using taskjo.Models;
 
 namespace IdentitySample.Models
 {
@@ -25,6 +26,7 @@ namespace IdentitySample.Models
         {
         }
 
+
         static ApplicationDbContext()
         {
             // Set the database intializer which is run once during application start
@@ -37,24 +39,36 @@ namespace IdentitySample.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<taskjo.Models.Project> Project { get; set; }
 
-        public System.Data.Entity.DbSet<taskjo.Models.Team> Team { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.Skills> Skills { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.TeamRule> TeamRules { get; set; }
+
+
+        public System.Data.Entity.DbSet<taskjo.Models.BackLog> backLogs { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.BlogPost> BlogPost { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.CateSkill> CateSkills { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Friend> Friends { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Importance> importances { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Phase> Phases { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Project> Project { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Skills> Skills { get; set; }
+        //public System.Data.Entity.DbSet<taskjo.Models.SprintBackLog> sprintBackLogs { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.State> states { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.SubTask> SubTasks { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Task> Tasks { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Team> Team { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.TeamMembers> TeamMembers { get; set; }
+        //public System.Data.Entity.DbSet<taskjo.Models.TodoList> TodoLists { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Users> Users { get; set; }
 
-       public System.Data.Entity.DbSet<taskjo.Models.CateSkill> CateSkills { get; set; }
-      //  public System.Data.Entity.DbSet<taskjo.Models.BlogPost> BlogPost { get; set; }
-       // public System.Data.Entity.DbSet<taskjo.Models.Friend> Friends { get; set; }
-      //  public System.Data.Entity.DbSet<taskjo.Models.TodoList> TodoLists { get; set; }
-       // public System.Data.Entity.DbSet<taskjo.Models.SubTask> SubTasks { get; set; }
-      //  public System.Data.Entity.DbSet<taskjo.Models.Task> Tasks{ get; set; }
-      //  public System.Data.Entity.DbSet<taskjo.Models.TeamMembers> TeamMembers { get; set; }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+
+
+        //    // modelBuilder.Entity<Team>().Has
+        //    //   .HasOne<TeamMembers>(s => s.)
+        //    //.WithOne(ad => ad.Student)
 
 
 
-
-
+        //}
     }
 }

@@ -20,6 +20,10 @@ namespace taskjo.Models
 
         [Key]
         public int userId { get; set; }
+        [DisplayName("نام کاربری")]
+        [StringLength(30)]
+        public string userName { get; set; }
+
         [DisplayName("نام")]
         [StringLength(50)]
         public string fname { get; set; }

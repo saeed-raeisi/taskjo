@@ -18,8 +18,15 @@ namespace taskjo.Models
         public string taskName { get; set; }
         [DisplayName("توضیحات وظیفه")]
         public string taskDesc { get; set; }
-        public int taskState { get; set; }
-        public virtual Phase phaseidFk { get; set; }
+        //[ForeignKey("state")]
+        //public int taskStateId { get; set; }
+        //[ForeignKey("phase")]
+        //public int taskPhaseId { get; set; }
+        //navigation
+        public virtual Phase phase { get; set; }
+        public virtual State state { get; set; }
+
+
 
 
 
