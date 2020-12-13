@@ -8,6 +8,7 @@ using System.Web;
 
 namespace taskjo.Models
 {
+
     public class Users
     {
         public Users()
@@ -18,7 +19,7 @@ namespace taskjo.Models
 
         }
 
-        [Key]
+        [Key,ForeignKey("subTask")]
         public int userId { get; set; }
         [DisplayName("نام کاربری")]
         [StringLength(30)]
@@ -44,6 +45,10 @@ namespace taskjo.Models
         public virtual ICollection<Friend> friends { get; set; }
         public virtual ICollection<Skills> Skills { get; set; }
         public virtual ICollection<Team> teams { get; set; }
+        public virtual ICollection<SubTask> subTask { get; set; }
+
+
+
 
 
 

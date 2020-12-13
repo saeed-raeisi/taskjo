@@ -1,4 +1,4 @@
-﻿@model taskjo.Models.CateSkill
+﻿@model taskjo.Models.Phase
 
 @{
     ViewBag.Title = "Delete";
@@ -8,15 +8,23 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>CateSkill</h4>
+    <h4>Phase</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.cateSkillName)
+            @Html.DisplayNameFor(model => model.phaseTitle)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.cateSkillName)
+            @Html.DisplayFor(model => model.phaseTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phaseState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phaseState)
         </dd>
 
     </dl>

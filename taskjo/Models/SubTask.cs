@@ -19,17 +19,17 @@ namespace taskjo.Models
         [StringLength(150)]
         public string subTascDesc { get; set; }
         //[ForeignKey("state")]
-        //public int subTaskStateId { get; set; }
+        [DisplayName("وضعیت زیر وظیفه")]
+        public string subTaskState { get; set; }
         //[ForeignKey("task")]
 
         //public int taskId { get; set; }
         //[ForeignKey("user")]
 
-        //public int userId { get; set; }
+        public string userName { get; set; }
         //navigation
 
-        public virtual Task task { get; set; }
-        public virtual State state { get; set; }
+        public virtual Tasks task { get; set; }
         public virtual Users user{ get; set; }
 
 

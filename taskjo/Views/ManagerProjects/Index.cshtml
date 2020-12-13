@@ -12,16 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.group.groupName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.projectAdmin)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.projectName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.des)
+            @Html.DisplayNameFor(model => model.projectDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectSate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectDocFile)
         </th>
         <th></th>
     </tr>
@@ -29,16 +32,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.group.groupName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.projectAdmin)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.projectName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.des)
+            @Html.DisplayFor(modelItem => item.projectDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.projectdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.projectSate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.projectDocFile)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.projectId }) |

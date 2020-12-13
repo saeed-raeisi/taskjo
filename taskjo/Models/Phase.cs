@@ -12,7 +12,7 @@ namespace taskjo.Models
     {
         public Phase()
         {
-            this.tasks= new HashSet<Task>();
+            this.tasks= new HashSet<Tasks>();
         }
 
         [Key]
@@ -24,12 +24,11 @@ namespace taskjo.Models
         [DisplayName("وضعیت فاز")]
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
         //[ForeignKey("state")]
-        //public int phaseStateId { get; set; }
+        public string phaseState { get; set; }
 
-        public virtual ICollection<Task> tasks  {get; set; }
+        public virtual ICollection<Tasks> tasks  {get; set; }
         public   virtual Project project { get; set; }
         //public virtual SprintBackLog sprintBackLog { get; set; }
-        public virtual State state { get; set; }
 
 
 

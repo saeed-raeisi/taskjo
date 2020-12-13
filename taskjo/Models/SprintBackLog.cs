@@ -21,7 +21,6 @@ namespace taskjo.Models
         //navigation
         public virtual BackLog backlog { get; set; }
         public virtual Phase phase { get; set; }
-        public virtual State state { get; set; }
 
 
 

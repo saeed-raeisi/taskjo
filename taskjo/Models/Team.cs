@@ -31,7 +31,7 @@ namespace taskjo.Models
 
         public string teamLogo { get; set; }
 
-        public char enChar { get; set; }
+        public string enChar { get; set; }
 
 
 

@@ -12,107 +12,107 @@ using taskjo.Models;
 
 namespace taskjo.Controllers
 {
-    public class AdminCateSkillsController : Controller
+    public class ManagerProjectsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: AdminCateSkills
+        // GET: ManagerProjects
         public async Task<ActionResult> Index()
         {
-            return View(await db.CateSkills.ToListAsync());
+            return View(await db.Project.ToListAsync());
         }
 
-        // GET: AdminCateSkills/Details/5
+        // GET: ManagerProjects/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CateSkill cateSkill = await db.CateSkills.FindAsync(id);
-            if (cateSkill == null)
+            Project project = await db.Project.FindAsync(id);
+            if (project == null)
             {
                 return HttpNotFound();
             }
-            return View(cateSkill);
+            return View(project);
         }
 
-        // GET: AdminCateSkills/Create
+        // GET: ManagerProjects/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AdminCateSkills/Create
+        // POST: ManagerProjects/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "cateskillId,cateSkillName")] CateSkill cateSkill)
+        public async Task<ActionResult> Create([Bind(Include = "projectId,projectName,projectDesc,projectdate,projectSate,projectDocFile")] Project project)
         {
             if (ModelState.IsValid)
             {
-                db.CateSkills.Add(cateSkill);
+                db.Project.Add(project);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(cateSkill);
+            return View(project);
         }
 
-        // GET: AdminCateSkills/Edit/5
+        // GET: ManagerProjects/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CateSkill cateSkill = await db.CateSkills.FindAsync(id);
-            if (cateSkill == null)
+            Project project = await db.Project.FindAsync(id);
+            if (project == null)
             {
                 return HttpNotFound();
             }
-            return View(cateSkill);
+            return View(project);
         }
 
-        // POST: AdminCateSkills/Edit/5
+        // POST: ManagerProjects/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "cateskillId,cateSkillName")] CateSkill cateSkill)
+        public async Task<ActionResult> Edit([Bind(Include = "projectId,projectName,projectDesc,projectdate,projectSate,projectDocFile")] Project project)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cateSkill).State = EntityState.Modified;
+                db.Entry(project).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(cateSkill);
+            return View(project);
         }
 
-        // GET: AdminCateSkills/Delete/5
+        // GET: ManagerProjects/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CateSkill cateSkill = await db.CateSkills.FindAsync(id);
-            if (cateSkill == null)
+            Project project = await db.Project.FindAsync(id);
+            if (project == null)
             {
                 return HttpNotFound();
             }
-            return View(cateSkill);
+            return View(project);
         }
 
-        // POST: AdminCateSkills/Delete/5
+        // POST: ManagerProjects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            CateSkill cateSkill = await db.CateSkills.FindAsync(id);
-            db.CateSkills.Remove(cateSkill);
+            Project project = await db.Project.FindAsync(id);
+            db.Project.Remove(project);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

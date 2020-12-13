@@ -51,13 +51,12 @@ namespace IdentitySample.Models
         public System.Data.Entity.DbSet<taskjo.Models.Project> Project { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Skills> Skills { get; set; }
         //public System.Data.Entity.DbSet<taskjo.Models.SprintBackLog> sprintBackLogs { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.State> states { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.SubTask> SubTasks { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.Task> Tasks { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Tasks> Tasks { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Team> Team { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.TeamMembers> TeamMembers { get; set; }
         //public System.Data.Entity.DbSet<taskjo.Models.TodoList> TodoLists { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.Users> Users { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.Users> User { get; set; }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{

@@ -8,7 +8,7 @@ using System.Web;
 
 namespace taskjo.Models
 {
-    public class Task
+    public class Tasks
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,12 +19,12 @@ namespace taskjo.Models
         [DisplayName("توضیحات وظیفه")]
         public string taskDesc { get; set; }
         //[ForeignKey("state")]
-        //public int taskStateId { get; set; }
+        [DisplayName("وضعیت وظیفه")]
+        public string taskState { get; set; }
         //[ForeignKey("phase")]
         //public int taskPhaseId { get; set; }
         //navigation
         public virtual Phase phase { get; set; }
-        public virtual State state { get; set; }
 
 
 

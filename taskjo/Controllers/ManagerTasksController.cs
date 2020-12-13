@@ -12,107 +12,107 @@ using taskjo.Models;
 
 namespace taskjo.Controllers
 {
-    public class AdminSkillsController : Controller
+    public class ManagerTasksController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: AdminSkills
+        // GET: ManagerTasks
         public async Task<ActionResult> Index()
         {
-            return View(await db.Skills.ToListAsync());
+            return View(await db.Tasks.ToListAsync());
         }
 
-        // GET: AdminSkills/Details/5
+        // GET: ManagerTasks/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Skills skills = await db.Skills.FindAsync(id);
-            if (skills == null)
+            Tasks tasks = await db.Tasks.FindAsync(id);
+            if (tasks == null)
             {
                 return HttpNotFound();
             }
-            return View(skills);
+            return View(tasks);
         }
 
-        // GET: AdminSkills/Create
+        // GET: ManagerTasks/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AdminSkills/Create
+        // POST: ManagerTasks/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "skillid,skillname")] Skills skills)
+        public async Task<ActionResult> Create([Bind(Include = "taskId,taskName,taskDesc,taskState")] Tasks tasks)
         {
             if (ModelState.IsValid)
             {
-                db.Skills.Add(skills);
+                db.Tasks.Add(tasks);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(skills);
+            return View(tasks);
         }
 
-        // GET: AdminSkills/Edit/5
+        // GET: ManagerTasks/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Skills skills = await db.Skills.FindAsync(id);
-            if (skills == null)
+            Tasks tasks = await db.Tasks.FindAsync(id);
+            if (tasks == null)
             {
                 return HttpNotFound();
             }
-            return View(skills);
+            return View(tasks);
         }
 
-        // POST: AdminSkills/Edit/5
+        // POST: ManagerTasks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "skillid,skillname")] Skills skills)
+        public async Task<ActionResult> Edit([Bind(Include = "taskId,taskName,taskDesc,taskState")] Tasks tasks)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(skills).State = EntityState.Modified;
+                db.Entry(tasks).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(skills);
+            return View(tasks);
         }
 
-        // GET: AdminSkills/Delete/5
+        // GET: ManagerTasks/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Skills skills = await db.Skills.FindAsync(id);
-            if (skills == null)
+            Tasks tasks = await db.Tasks.FindAsync(id);
+            if (tasks == null)
             {
                 return HttpNotFound();
             }
-            return View(skills);
+            return View(tasks);
         }
 
-        // POST: AdminSkills/Delete/5
+        // POST: ManagerTasks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Skills skills = await db.Skills.FindAsync(id);
-            db.Skills.Remove(skills);
+            Tasks tasks = await db.Tasks.FindAsync(id);
+            db.Tasks.Remove(tasks);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
