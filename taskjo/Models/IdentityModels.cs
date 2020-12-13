@@ -44,6 +44,17 @@ namespace IdentitySample.Models
         public System.Data.Entity.DbSet<taskjo.Models.TeamRule> TeamRules { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Phase> Phases { get; set; }
 
-        public System.Data.Entity.DbSet<taskjo.Models.CateSkill> CateSkills { get; set; }
+       public System.Data.Entity.DbSet<taskjo.Models.CateSkill> CateSkills { get; set; }
+      //  public System.Data.Entity.DbSet<taskjo.Models.BlogPost> BlogPost { get; set; }
+       // public System.Data.Entity.DbSet<taskjo.Models.Friend> Friends { get; set; }
+      //  public System.Data.Entity.DbSet<taskjo.Models.TodoList> TodoLists { get; set; }
+       // public System.Data.Entity.DbSet<taskjo.Models.SubTask> SubTasks { get; set; }
+      //  public System.Data.Entity.DbSet<taskjo.Models.Task> Tasks{ get; set; }
+      //  public System.Data.Entity.DbSet<taskjo.Models.TeamMembers> TeamMembers { get; set; }
+
+
+
+
+
     }
 }

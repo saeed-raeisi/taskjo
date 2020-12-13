@@ -9,17 +9,15 @@ namespace taskjo.Models
 {
     public class Friend
     {
-        
-        [Key]
-        public int friendId { get; set; }
-        public int userId { get; set; }
-        [ForeignKey("userId")]
-        public virtual ICollection<Users> users { get; set; }
 
-        public Friend()
-        {
-            this.users = new HashSet<Users>();
-        }
-        public int frienduser { get; set; }
+        [Key]
+        [Column(Order = 0)]
+        public int userId { get; set; }
+        [Key]
+        [Column(Order = 1)]
+        public int friendId { get; set; }
+        public virtual Users users { get; set; }
+
+        
     }
 }

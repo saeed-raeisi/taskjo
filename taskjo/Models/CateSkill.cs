@@ -20,7 +20,7 @@ namespace taskjo.Models
         [Required(ErrorMessage = "لطفا {0} را وارد کنيد")]
         public string  cateSkillName { get; set; }
         //navigation
-        //[ForeignKey("groupId")]
+
         public virtual ICollection<Skills> skills { get; set; }
     }
 }

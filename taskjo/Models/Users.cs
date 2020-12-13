@@ -10,17 +10,40 @@ namespace taskjo.Models
 {
     public class Users
     {
+        public Users()
+        {
+            this.friends = new HashSet<Friend>();
+            this.Skills = new HashSet<Skills>();
+            this.teams = new HashSet<Team>();
+
+        }
+
         [Key]
         public int userId { get; set; }
-        //[DisplayName("نام")]
-        //[Required(ErrorMessage = "{0} is required")]
-        //[StringLength(150)]
+        [DisplayName("نام")]
+        [StringLength(50)]
         public string fname { get; set; }
+        [StringLength(50)]
+        [DisplayName("نام خانوادگی")]
         public string lname { get; set; }
-        public string email { get; set; }
+        [Phone]
+        [DisplayName("شماره تماس")]
+        public string mobile { get; set; }
+        [DisplayName("تاریخ تولد")]
+        public DateTime? birthdate { get; set; }
 
-        public virtual Friend friend { get; set; }
-        public virtual project_users_tbl project_users { get; set; }
+        [EmailAddress]
+        [DisplayName("ایمیل")]
+        [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
+        public string email { get; set; }
+        // navigation
+        public virtual ICollection<Friend> friends { get; set; }
+        public virtual ICollection<Skills> Skills { get; set; }
+        public virtual ICollection<Team> teams { get; set; }
+
+
+
+
 
     }
 }

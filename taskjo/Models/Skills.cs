@@ -14,8 +14,6 @@ namespace taskjo.Models
         [Display(Name = "نام مهارت")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنيد")]
         public string skillname { get; set; }
-        // public int cateskillId { get; set; }
-        // [ForeignKey("cateskillId")]
         public virtual CateSkill catskillfk { get; set; }
     }
 }

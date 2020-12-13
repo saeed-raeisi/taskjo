@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,21 +10,22 @@ namespace taskjo.Models
 {
     public class BlogPost
     {
-        public BlogPost()
-        {
-            this.users = new HashSet<Users>();
-        }
+
 
         [Key]
-        public int userListId { get; set; }
-        //public int projectId { get; set; }
+        public int postId { get; set; }
+        [DisplayName("عنوان")]
+        [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
+        public string postTitle { get; set; }
+        public DateTime postDate { get; set; }
+        [DisplayName("متن")]
+        [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
+        public string postDesc { get; set; }
+        [DisplayName("عکس")]
+        public string postPicture { get; set; }
 
-        //[ForeignKey("projectId")]
-        //public virtual project_tbl project { get; set; }
-        public int userId { get; set; }
-
-        [ForeignKey("userId")]
-        public virtual ICollection<Users> users { get; set; }
+        //navigation
+        public virtual Users users { get; set; }
       
     }
 }

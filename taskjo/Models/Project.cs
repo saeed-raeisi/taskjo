@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,18 +15,25 @@ namespace taskjo.Models
             this.phases = new HashSet<Phase>();
         }
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int projectId { get; set; }
-        public int projectAdmin { get; set; }
+        [DisplayName("نام پروژه")]
+        [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
         public string projectName { get; set; }
-        public string des { get; set; }
-        //public int userListId { get; set; }
-        //[ForeignKey("userListId")]
-        //public virtual project_users_tbl project_user { get; set; }
-        public int groupId { get; set; }
-        [ForeignKey("groupId")]
-        public virtual Team group { get; set; }
+        [DisplayName("توضیحات پروژه")]
+        public string projectDesc { get; set; }
+        [DisplayName("تاریخ ایجاد پروژه")]
+        public DateTime projectdate { get; set; }
+        [DisplayName("وضعیت پروژه")]
+        public int projectSate { get; set; }
+        [DisplayName("مستندات پروژه")]
+        public string projectDocFile { get; set; }
 
+
+
+        //navigation
         public ICollection<Phase> phases  { get; set; }
+        public virtual Team teams { get; set; }
 
 
 
