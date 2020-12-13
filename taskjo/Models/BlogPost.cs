@@ -7,9 +7,9 @@ using System.Web;
 
 namespace taskjo.Models
 {
-    public class project_users_tbl
+    public class BlogPost
     {
-        public project_users_tbl()
+        public BlogPost()
         {
             this.users = new HashSet<Users>();
         }
