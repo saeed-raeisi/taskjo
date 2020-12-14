@@ -1,0 +1,67 @@
+﻿@model IEnumerable<taskjo.Models.Team>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.teamAdmin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teamDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teamStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teamLogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.enChar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.teamAdmin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teamDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teamStartDate)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.teamLogo)*@
+            @if (item.teamLogo != null)
+            {
+                <img src="~/ImgLogo/@item.teamLogo" class="thumbnail" style="max-width:120px" />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.enChar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.teamId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.teamId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.teamId })
+        </td>
+    </tr>
+}
+
+</table>

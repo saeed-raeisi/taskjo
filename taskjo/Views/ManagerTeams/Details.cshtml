@@ -1,0 +1,70 @@
+﻿@model taskjo.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.teamAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teamAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teamDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teamDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teamStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teamStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teamLogo)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.teamLogo)*@
+            @if (Model.teamLogo != null)
+            {
+                <img src="~/ImgLogo/@Model.teamLogo" class="thumbnail" style="max-width:120px" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.enChar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.enChar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.teamId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -12,9 +13,11 @@ namespace taskjo.Models
     {
         [Key]
         public int teamMemberId { get; set; }
-        //[Key]
-        //[Column(Order = 0)]
-        public int teamId { get; set; }
+        ////[Key]
+        ////[Column(Order = 0)]
+        //public int teamId { get; set; }
+        ////[Key]
+        ////[Column(Order = 1)]
         public int userId { get; set; }
         [DisplayName("نقش")]
         [StringLength(50)]
