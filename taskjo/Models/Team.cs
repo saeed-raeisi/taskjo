@@ -25,6 +25,7 @@ namespace taskjo.Models
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
         public string teamName { get; set; }
         [DisplayName("توضیحات  تیم")]
+        [DataType(DataType.MultilineText)]
         public string teamDesc { get; set; }
         public DateTime teamStartDate { get; set; }
 

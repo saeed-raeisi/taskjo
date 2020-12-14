@@ -12,110 +12,107 @@ using taskjo.Models;
 
 namespace taskjo.Controllers
 {
-    public class ManagerPhasesController : Controller
+    public class ManagerSubTasksController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: ManagerPhases
+        // GET: ManagerSubTasks
         public async Task<ActionResult> Index()
         {
-            return View(await db.Phases.ToListAsync());
+            return View(await db.SubTasks.ToListAsync());
         }
 
-        // GET: ManagerPhases/Details/5
+        // GET: ManagerSubTasks/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Phase phase = await db.Phases.FindAsync(id);
-            //Tasks tasks = db.Tasks.Where(p => p.phase.phaseId == id).FirstOrDefault();
-            //if (phase == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //phase
-            return View(await db.Tasks.Where(p => p.phase.phaseId == id).ToListAsync());
+            SubTask subTask = await db.SubTasks.FindAsync(id);
+            if (subTask == null)
+            {
+                return HttpNotFound();
+            }
+            return View(subTask);
         }
 
-        // GET: ManagerPhases/Create
+        // GET: ManagerSubTasks/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ManagerPhases/Create
+        // POST: ManagerSubTasks/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "phaseId,phaseTitle,phaseState")] Phase phase)
+        public async Task<ActionResult> Create([Bind(Include = "subtaskId,subTaskName,subTascDesc,subTaskState,userName")] SubTask subTask)
         {
             if (ModelState.IsValid)
             {
-
-                db.Phases.Add(phase);
+                db.SubTasks.Add(subTask);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(phase);
+            return View(subTask);
         }
 
-        // GET: ManagerPhases/Edit/5
+        // GET: ManagerSubTasks/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Phase phase = await db.Phases.FindAsync(id);
-            if (phase == null)
+            SubTask subTask = await db.SubTasks.FindAsync(id);
+            if (subTask == null)
             {
                 return HttpNotFound();
             }
-            return View(phase);
+            return View(subTask);
         }
 
-        // POST: ManagerPhases/Edit/5
+        // POST: ManagerSubTasks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "phaseId,phaseTitle,phaseState")] Phase phase)
+        public async Task<ActionResult> Edit([Bind(Include = "subtaskId,subTaskName,subTascDesc,subTaskState,userName")] SubTask subTask)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(phase).State = EntityState.Modified;
+                db.Entry(subTask).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(phase);
+            return View(subTask);
         }
 
-        // GET: ManagerPhases/Delete/5
+        // GET: ManagerSubTasks/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Phase phase = await db.Phases.FindAsync(id);
-            if (phase == null)
+            SubTask subTask = await db.SubTasks.FindAsync(id);
+            if (subTask == null)
             {
                 return HttpNotFound();
             }
-            return View(phase);
+            return View(subTask);
         }
 
-        // POST: ManagerPhases/Delete/5
+        // POST: ManagerSubTasks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Phase phase = await db.Phases.FindAsync(id);
-            db.Phases.Remove(phase);
+            SubTask subTask = await db.SubTasks.FindAsync(id);
+            db.SubTasks.Remove(subTask);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
@@ -128,19 +125,5 @@ namespace taskjo.Controllers
             }
             base.Dispose(disposing);
         }
-
-        public ActionResult AddPhseByID(int id)
-        {
-
-            var phase = db.Phases.Where(p => p.project.projectId == id).ToListAsync();
-            if (phase != null)
-            {
-                return View(phase);
-            }
-
-            return View("Index");
-        }
-
-
     }
 }

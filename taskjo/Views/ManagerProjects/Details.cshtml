@@ -1,58 +1,66 @@
 ﻿@model taskjo.Models.Project
 
+
+
 @{
     ViewBag.Title = "Details";
 }
+<html>
+<body>
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>Project</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.projectName)
+            </dt>
 
-<div>
-    <h4>Project</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.projectName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.projectName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.projectName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.projectDesc)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.projectDesc)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.projectDesc)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.projectDesc)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.projectdate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.projectdate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.projectdate)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.projectdate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.projectSate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.projectSate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.projectSate)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.projectSate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.projectDocFile)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.projectDocFile)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.projectDocFile)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.projectDocFile)
-        </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.projectId }) |
+        @Html.ActionLink("Back to List", "Index") |
+        
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.projectId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    </p>
+</body>
+</html>

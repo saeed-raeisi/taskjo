@@ -15,6 +15,7 @@ namespace taskjo.Models
         [DisplayName("نام زیر وظیفه")]
         [StringLength(50)]
         public string subTaskName { get; set; }
+        [DataType(DataType.MultilineText)]
         [DisplayName("توضیحات زیر وظیفه")]
         [StringLength(150)]
         public string subTascDesc { get; set; }

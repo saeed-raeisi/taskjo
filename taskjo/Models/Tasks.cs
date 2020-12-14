@@ -16,6 +16,7 @@ namespace taskjo.Models
         [DisplayName("عنوان وظیفه")]
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
         public string taskName { get; set; }
+        [DataType(DataType.MultilineText)]
         [DisplayName("توضیحات وظیفه")]
         public string taskDesc { get; set; }
         //[ForeignKey("state")]

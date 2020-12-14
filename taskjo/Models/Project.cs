@@ -22,9 +22,11 @@ namespace taskjo.Models
         public string projectName { get; set; }
         [DisplayName("توضیحات پروژه")]
         public string projectDesc { get; set; }
+        [UIHint("datepicker")]
         [DisplayName("تاریخ ایجاد پروژه")]
         public DateTime projectdate { get; set; }
         [DisplayName("وضعیت پروژه")]
+        //string
         public int projectSate { get; set; }
         [DisplayName("مستندات پروژه")]
         public string projectDocFile { get; set; }
