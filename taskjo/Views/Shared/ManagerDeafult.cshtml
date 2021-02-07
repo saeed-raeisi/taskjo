@@ -13,31 +13,31 @@
 </head>
 
 <body>
-    <div id="mainWrapper">
+    <!--<div id="mainWrapper">
         <header>
             <!-- This is the header content. It contains Logo and links -->
-            <div id="logo">
+            <!--<div id="logo">-->
                 <!-- <img src="logoImage.png" alt="sample logo"> -->
                 <!-- Company Logo text -->
-                LOGO
+                <!--LOGO
             </div>
             <div id="headerLinks"><a href="#" title="Login/Register">Login/Register</a><a href="#" title="Cart">Cart</a></div>
         </header>
-        <section id="offer">
+        <section id="offer">-->
             <!-- The offer section displays a banner text for promotions -->
-            <h2 style="text-align:right;margin-right:100px;">اطلاعات شما</h2>
+            <!--<h2 style="text-align:right;margin-right:100px;">اطلاعات شما</h2>
         </section>
         <div id="content">
-            <section class="sidebar" dir="rtl">
+            <section class="sidebar" dir="rtl">-->
                 <!-- This adds a sidebar with 1 searchbox,2 menusets, each with 4 links -->
-                <input type="text" id="search" value="search">
+                <!--<input type="text" id="search" value="search">
                 <div id="menubar">
                     <nav class="menu">
-                        <h2 style="margin-left:50px"><!-- Title for menuset 1 -->منو کاربر </h2>
+                        <h2 style="margin-left:50px">--><!-- Title for menuset 1 --><!--منو کاربر </h2>
                         <hr>
-                        <ul style="text-align:right">
-                            <!-- List of links under menuset 1 -->
-                            @*<link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />*@
+                        <ul style="text-align:right">-->
+                            <!-- List of links under menuset 1 -->-->
+                            <!--@*<link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />*@
                             <li><a href="@Url.Action("Index", "ManagerTeams") " title="Link">تیم ها</a></li>
                             <li><a href="@Url.Action("Index", "ManagerProjects") " title="Link">پروژه ها</a></li>
                             <li><a href="@Url.Action("Index", "ManagerPhases") " title="Link">فاز ها </a></li>
@@ -49,20 +49,20 @@
 
 
                 </div>
-            </section>
+            </section>-->
 
             @RenderBody()
 
-        </div>
-        <footer>
+        <!--</div>
+        <footer>-->
             <!-- This is the footer with default 3 divs -->
-            <div>
+            <!--<div>
                 <p>تمامی حقوق این پروژه متعلق به من و سعید میباشد.</p>
             </div>
             
            
         </footer>
-    </div>
+    </div>-->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

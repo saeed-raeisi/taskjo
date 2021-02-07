@@ -1,23 +1,4 @@
-﻿@*@{*@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    @{
-        //Layout = "~/Views/Shared/ManagerDeafult.cshtml";
-        var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
-
-        string layout = "";
-        if (controller == "Manager")
-        {
-            layout = "~/Views/Shared/ManagerDeafult.cshtml";
-        }
-        else
-        {
-            layout = "~/Views/Shared/_Layout.cshtml";
-        }
-
-        Layout = layout;
-
-    }
-
-
-    @*Layout = "~/Views/Shared/_Layout.cshtml";
-}*@

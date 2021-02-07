@@ -10,6 +10,14 @@ namespace taskjo.Models
 {
     public class Tasks
     {
+        public Tasks()
+        {
+            this.SubTasks = new HashSet<SubTask>();
+        }
+
+
+
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int taskId { get; set; }
@@ -22,10 +30,11 @@ namespace taskjo.Models
         //[ForeignKey("state")]
         [DisplayName("وضعیت وظیفه")]
         public string taskState { get; set; }
-        //[ForeignKey("phase")]
-        //public int taskPhaseId { get; set; }
+        [DisplayName("نام فاز")]
+        public int phaseId { get; set; }
         //navigation
         public virtual Phase phase { get; set; }
+        public virtual ICollection<SubTask> SubTasks { get; set; }
 
 
 

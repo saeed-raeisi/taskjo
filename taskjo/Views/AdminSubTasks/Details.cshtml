@@ -1,0 +1,74 @@
+﻿@model taskjo.Models.SubTask
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>SubTask</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.task.taskName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.task.taskName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.subTaskName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.subTaskName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.subTascDesc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.subTascDesc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.subTaskState)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.subTaskState)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.is_active)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.is_active)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.username)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.username)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.subtaskId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

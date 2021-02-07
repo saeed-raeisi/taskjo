@@ -10,6 +10,11 @@ namespace taskjo.Models
 {
     public class SubTask
     {
+       
+
+
+
+
         [Key]
         public int subtaskId { get; set; }
         [DisplayName("نام زیر وظیفه")]
@@ -19,19 +24,18 @@ namespace taskjo.Models
         [DisplayName("توضیحات زیر وظیفه")]
         [StringLength(150)]
         public string subTascDesc { get; set; }
-        //[ForeignKey("state")]
         [DisplayName("وضعیت زیر وظیفه")]
         public string subTaskState { get; set; }
-        //[ForeignKey("task")]
+        [DisplayName("فعال   ")]
+        public Boolean is_active { get; set; }
+        [DisplayName("وظیفه  ")]
+        public int taskId { get; set; }
 
-        //public int taskId { get; set; }
-        //[ForeignKey("user")]
-
-        public string userName { get; set; }
+        public string username { get; set; }
         //navigation
 
         public virtual Tasks task { get; set; }
-        public virtual Users user{ get; set; }
+        //public virtual Users user{ get; set; }
 
 
 

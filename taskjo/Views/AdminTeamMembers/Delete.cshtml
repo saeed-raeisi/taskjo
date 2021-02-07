@@ -1,0 +1,48 @@
+﻿@model taskjo.Models.TeamMembers
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TeamMembers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.team.teamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.team.teamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberRole)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

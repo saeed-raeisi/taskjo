@@ -11,7 +11,9 @@ namespace IdentitySample.Controllers
 {
     [Authorize]
     public class AccountController : Controller
+
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public AccountController()
         {
         }
@@ -81,7 +83,7 @@ namespace IdentitySample.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "ایمیل یا رمز شما اشتباه است");
                     return View(model);
             }
         }
@@ -153,6 +155,12 @@ namespace IdentitySample.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // add new my user
+                    var myuser = new taskjo.Models.MyUsers { UserId= user.Id , fname = "کاربر جدید"};
+                    db.MyUsers.Add(myuser);
+                    await db.SaveChangesAsync();
+
+                    //
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");

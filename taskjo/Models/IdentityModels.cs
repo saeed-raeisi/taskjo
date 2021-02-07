@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,6 +19,11 @@ namespace IdentitySample.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public virtual ICollection<TeamMembers> TeamMembers { get; set; }
+        public virtual ICollection<MyUsers> MyUsers { get; set; }
+
+
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -42,32 +49,15 @@ namespace IdentitySample.Models
 
 
 
-        public System.Data.Entity.DbSet<taskjo.Models.BackLog> backLogs { get; set; }
+
         public System.Data.Entity.DbSet<taskjo.Models.BlogPost> BlogPost { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.CateSkill> CateSkills { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Friend> Friends { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.Importance> importances { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Phase> Phases { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Project> Project { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.Skills> Skills { get; set; }
-        //public System.Data.Entity.DbSet<taskjo.Models.SprintBackLog> sprintBackLogs { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.SubTask> SubTasks { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Tasks> Tasks { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.Team> Team { get; set; }
+        public System.Data.Entity.DbSet<taskjo.Models.MyUsers> MyUsers { get; set; }
         public System.Data.Entity.DbSet<taskjo.Models.TeamMembers> TeamMembers { get; set; }
-        //public System.Data.Entity.DbSet<taskjo.Models.TodoList> TodoLists { get; set; }
-        public System.Data.Entity.DbSet<taskjo.Models.Users> User { get; set; }
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-
-
-        //    // modelBuilder.Entity<Team>().Has
-        //    //   .HasOne<TeamMembers>(s => s.)
-        //    //.WithOne(ad => ad.Student)
-
-
-
-        //}
     }
 }

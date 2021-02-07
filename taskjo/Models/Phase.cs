@@ -25,10 +25,12 @@ namespace taskjo.Models
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
         //[ForeignKey("state")]
         public string phaseState { get; set; }
+        [DisplayName(" نام پروژه")]
+        public int projectId { get; set; }
 
         public virtual ICollection<Tasks> tasks  {get; set; }
         public   virtual Project project { get; set; }
-        //public virtual SprintBackLog sprintBackLog { get; set; }
+       
 
 
 

@@ -26,10 +26,11 @@ namespace taskjo.Models
         [DisplayName("تاریخ ایجاد پروژه")]
         public DateTime projectdate { get; set; }
         [DisplayName("وضعیت پروژه")]
-        //string
-        public int projectSate { get; set; }
+        public string projectSate { get; set; }
         [DisplayName("مستندات پروژه")]
         public string projectDocFile { get; set; }
+        [DisplayName("تیم پروژه")]
+        public int teamId { get; set; }
 
 
 

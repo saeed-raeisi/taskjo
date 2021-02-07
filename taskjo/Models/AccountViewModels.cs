@@ -48,12 +48,13 @@ namespace IdentitySample.Models
 
     public class LoginViewModel
     {
-        [Required]
+ 
         [Display(Name = "Email")]
+        [Required(ErrorMessage = "ورود ایمیل الزامی است")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ورود پسورد الزامی است")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

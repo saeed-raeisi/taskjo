@@ -1,0 +1,71 @@
+﻿@model IEnumerable<taskjo.Models.SubTask>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.task.taskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subTaskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subTascDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subTaskState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.is_active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.task.taskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subTaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subTascDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subTaskState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.subtaskId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.subtaskId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.subtaskId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

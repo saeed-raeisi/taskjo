@@ -1,0 +1,53 @@
+﻿@model IEnumerable<taskjo.Models.Phase>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.project.projectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phaseTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phaseState)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.project.projectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phaseTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phaseState)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.phaseId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.phaseId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.phaseId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

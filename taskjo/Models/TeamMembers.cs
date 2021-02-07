@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdentitySample.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +14,21 @@ namespace taskjo.Models
     {
         [Key]
         public int teamMemberId { get; set; }
-        ////[Key]
-        ////[Column(Order = 0)]
-        //public int teamId { get; set; }
-        ////[Key]
-        ////[Column(Order = 1)]
-        public int userId { get; set; }
+        [DisplayName("تیم")]
+        public int teamId { get; set; }
+        //public string userId { get; set; }
         [DisplayName("نقش")]
         [StringLength(50)]
-        public string memberRule { get; set; }
+        public string memberRole { get; set; }
 
 
         //navigation
         public virtual Team team { get; set; }
-        public virtual Users user { get; set; }
+
+        [ForeignKey("ApplicationUser")]
+        [DisplayName("کاربر")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
     }
 }

@@ -17,6 +17,7 @@ namespace taskjo.Models
         [DisplayName("عنوان")]
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
         public string postTitle { get; set; }
+        [DisplayName("تاریخ ")]
         public DateTime postDate { get; set; }
         [DisplayName("متن")]
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
@@ -25,7 +26,7 @@ namespace taskjo.Models
         public string postPicture { get; set; }
 
         //navigation
-        public virtual Users users { get; set; }
+        //public virtual Users users { get; set; }
       
     }
 }

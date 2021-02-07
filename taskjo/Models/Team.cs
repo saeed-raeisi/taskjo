@@ -16,31 +16,27 @@ namespace taskjo.Models
             this.prjects = new HashSet<Project>();
         }
 
-        [Key,ForeignKey("teamMembers")]
+        [Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int teamId { get; set; }
-        [DisplayName("مدیر تیم")]
-        public string teamAdmin { get; set; }
         [DisplayName("اسم تیم")]
         [Required(ErrorMessage = "لطفا {0} را وراد کنید")]
         public string teamName { get; set; }
         [DisplayName("توضیحات  تیم")]
         [DataType(DataType.MultilineText)]
         public string teamDesc { get; set; }
+        [DisplayName("تاریخ ایجاد تیم")]
+        [UIHint("datepicker")]
         public DateTime teamStartDate { get; set; }
-
+        [DisplayName("لوگو  تیم")]
         public string teamLogo { get; set; }
-
-        public string enChar { get; set; }
-
-
-
 
 
         //navigation
         public virtual ICollection<Project> prjects { get; set; }
         public virtual ICollection<TeamMembers> teamMembers { get; set; }
-        public virtual Users users { get; set; }
+
+
 
 
     }
