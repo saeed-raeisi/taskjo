@@ -19,6 +19,7 @@ namespace taskjo.Controllers
         // GET: Projects
         public async Task<ActionResult> Index()
         {
+            var x = ;
             var project = db.Project.Include(p => p.teams);
             return View(await project.ToListAsync());
         }
