@@ -1,0 +1,50 @@
+﻿@model taskjo.Models.TeamMembers
+
+@{
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>TeamMembers</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ApplicationUser.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.team.teamName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.team.teamName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.memberRole)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.memberRole)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.teamMemberId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

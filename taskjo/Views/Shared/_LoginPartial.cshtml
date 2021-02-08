@@ -1,19 +1,42 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated) {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })) {
+
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav-menu" }))
+    {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <ul class="nav-menu d-none d-lg-block">
+
+            <li class="get-started"><a href="@Url.Action("Index", "UserDashboard")"> پنل شما</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">خروج</a></li>
+            <li><a href="@Url.Action("Contact", "Home")">ارتباط با ما</a></li>
+            <li><a href="@Url.Action("About", "Home")">درباره ما</a></li>
+            <li><a href="@Url.Action("Index", "Home")">خرید اشتراک</a></li>
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <li>@Html.ActionLink("نقش ها", "Index", "RolesAdmin")</li>
+                <li>@Html.ActionLink("ادمین", "Index", "UsersAdmin")</li>
+            }
+            <li class="active"><a href="@Url.Action("Index", "Home")">خانه</a></li>
+            @*<li>
+                    @Html.ActionLink("سلام " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>*@
         </ul>
     }
 }
-else {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+else
+{
+<div class="nav-menu">
+    <ul class="nav-menu d-none d-lg-block">
+
+        <li>@Html.ActionLink("ورود", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class="get-started" })</li>
+        <li>@Html.ActionLink("ثبت نام", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li><a href="@Url.Action("Contact", "Home")">ارتباط با ما</a></li>
+        <li><a href="@Url.Action("About", "Home")">درباره ما</a></li>
+        <li><a href="@Url.Action("Index", "Home")">خرید اشتراک</a></li>
+        <li class="active"><a href="@Url.Action("Index", "Home")">خانه</a></li>
     </ul>
+</div>
 }

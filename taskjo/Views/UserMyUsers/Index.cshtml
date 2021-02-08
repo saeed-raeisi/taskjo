@@ -1,0 +1,65 @@
+﻿@model IEnumerable<taskjo.Models.MyUsers>
+
+@{
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.birthdate)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birthdate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.myUserId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.myUserId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.myUserId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

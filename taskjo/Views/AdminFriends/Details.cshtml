@@ -1,0 +1,50 @@
+﻿@model taskjo.Models.Friend
+
+@{
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Friend</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.userId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.userId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.userId_friend)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.userId_friend)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.is_active)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.is_active)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.friendId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

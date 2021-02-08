@@ -1,4 +1,10 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
 }
 
+
+@*@{
+Layout = User.Identity.IsAuthenticated && User.IsInRole("Admin")
+? "~/Views/Shared/_Layout.cshtml"
+: "~/Views/Shared/DefaultLayout.cshtml";
+}*@

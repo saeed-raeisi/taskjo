@@ -1,0 +1,15 @@
+﻿@model IEnumerable<taskjo.Models.Team>
+
+@*@Url.Action("Getprogect", "UserDashboard", new { id = @item.teamId })*@
+
+
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        <a href="/UserDashboard/showProject/@item.teamId" class="nav-link">
+            <i class="fa fa-circle-o nav-icon"></i>
+            <p>@item.teamName</p>
+        </a>
+    </li>
+
+}

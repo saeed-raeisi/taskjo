@@ -1,0 +1,109 @@
+﻿<!-- Content Header (Page header) -->
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark"> @ViewBag.project</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="/UserDashboard/showTeams/@ViewBag.teamId">پروژه ها</a></li>
+                    <li class="breadcrumb-item active">@ViewBag.project</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Widget: user widget style 2 -->
+                <div class="card card-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-success">
+                        <h3 class="widget-user-username">@ViewBag.project -</h3>
+                        <h5 class="widget-user-desc">  تیم :   @ViewBag.team</h5>
+                        <h6 class="widget-user-desc">  تاریخ ایجاد :   @ViewBag.date</h6>
+
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    فاز ‌ها <span class="float-left badge bg-primary">@ViewBag.all_phase</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    فاز ‌های کامل شده <span class="float-left badge bg-success">@ViewBag.done_phase</span>
+                                </a>
+                            </li>
+                            @if (@ViewBag.role == "admin")
+                            {
+                                <li class="nav-item">
+                                    <div class="col-md-12 nav-link">
+                                        <a href="/UserProjects/Edit/@ViewBag.projectId" class="btn btn-block btn-primary btn-sm ">
+                                            ویرایش پروژه
+                                        </a>
+                                        <a href="/UserProjects/Delete/@ViewBag.projectId" class="btn btn-block btn-danger btn-sm">
+                                            حذف پروژه
+                                        </a>
+                                    </div>
+
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.widget-user -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">فاز ها</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>فعالیت</th>
+                                <th>پیشرفت</th>
+                                <th style="width: 40px">درصد</th>
+                            </tr>
+                            @Html.Action("GetPhase", "UserDashboard", new { id = ViewBag.projectId })
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <a href="/UserPhases/Create/@ViewBag.projectId" class="btn btn-sm btn-info float-left">فاز جدید</a>
+                        <ul class="pagination pagination-sm m-0 float-right">
+                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.card -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+

@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="~/Content/dist/css/custom-style.css">
 
 </head>
+
+@{ 
+    var id = Html.Action("getUserId", "UserDashboard");
+    var userId = Html.Action("getMyUserId", "UserDashboard", new { id = id });
+}
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -149,8 +154,6 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                     style="opacity: .8">
                 <span class="brand-text font-weight-light">پنل مدیریت</span>
             </a>
 
@@ -163,7 +166,7 @@
                             <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block"> @ViewBag.name </a>
+                            <a href="#" class="d-block"> @Html.Action("getName","UserDashboard",new { id=id}) </a>
                         </div>
                     </div>
 
@@ -171,20 +174,30 @@
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                             <li class="nav-item">
 
-                                <a href="~/Views/UserDashboard/Index.cshtml" class="nav-link">
+                                <a href="/UserDashboard/Index" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>داشبورد </p>
                                 </a>
 
                             </li>
                             <li class="nav-item">
-                                <a href="pages/widgets.html" class="nav-link">
+                                <a href="/UserMyUsers/Edit/@userId" class="nav-link">
                                     <i class="nav-icon fa fa-th"></i>
                                     <p>
-                                        ویجت‌ها
+                                        پروفایل‌
+                                        <span class="right badge badge-danger">جدید</span>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/UserFriends/index" class="nav-link">
+                                    <i class="nav-icon fa fa-users"></i>
+                                    <p>
+                                        دوستان‌
                                         <span class="right badge badge-danger">جدید</span>
                                     </p>
                                 </a>
@@ -194,21 +207,14 @@
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fa fa-edit"></i>
                                     <p>
-                                        پروژه ها
+                                        تیم ها
                                         <i class="fa fa-angle-left right"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @*@foreach (var item in ViewBag.data)
-                                    {
-                                    <li class="nav-item">
-                                        <a href='@Url.Action("Getprogect", "UserDashboard", new { id = @item.teamId })' class="nav-link">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>@item.teamName</p>
-                                        </a>
-                                    </li>*@
 
-                                    }
+
+                                    @Html.Action("showTeams", "UserDashboard")
 
                                 </ul>
                             </li>
@@ -222,24 +228,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">داشبورد دوم</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-left">
-                                <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                                <li class="breadcrumb-item active">داشبورد دوم</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
+        
             @RenderBody()
 
         </div>

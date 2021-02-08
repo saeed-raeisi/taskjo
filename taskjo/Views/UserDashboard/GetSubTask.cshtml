@@ -1,0 +1,35 @@
+﻿
+@model IEnumerable<taskjo.Models.SubTask>
+
+@foreach (var item in Model)
+{
+
+    <li>
+        <!-- drag handle -->
+        <span class="handle">
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-ellipsis-v"></i>
+        </span>
+        <!-- checkbox -->
+        @{ if (item.is_active)
+            {
+                <input type="checkbox" checked value="" name="">
+            }
+            else
+            {
+                <input type="checkbox" value="" name="">
+            }
+        }
+        <!-- todo text -->
+        <span class="text">@item.subTaskName</span>
+        <!-- Emphasis label -->
+        <small class="badge badge-danger"><i class="fa fa-clock-o"></i> @item.subTaskState</small>
+        <!-- General tools such as edit or delete-->
+        <div class="tools">
+            <a href="/UserSubTasks/edit/@item.subtaskId" class="fa fa-edit"></a>
+            <a href="/UserSubTasks/Delete/@item.subtaskId" class="fa fa-trash-o"></a>
+        </div>
+    </li>
+}
+
+

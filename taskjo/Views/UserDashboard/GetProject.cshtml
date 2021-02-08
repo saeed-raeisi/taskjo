@@ -1,0 +1,16 @@
+﻿@model IEnumerable<taskjo.Models.Project>
+@foreach (var item in Model)
+{
+    <li class="item">
+        <div class="product-info">
+            <a href="/UserDashboard/ShowPhase/@item.projectId" class="product-title">
+                @item.projectName
+                <span class="badge badge-warning float-left">@item.projectSate</span>
+            </a>
+            <span class="product-description">
+                @item.projectDesc
+            </span>
+        </div>
+    </li>
+
+}

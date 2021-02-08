@@ -1,0 +1,42 @@
+﻿@model IEnumerable<taskjo.Models.Friend>
+
+@{
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+    <p>
+        @Html.ActionLink("دوست جدید", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userId_friend)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.is_active)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userId_friend)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_active)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.friendId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.friendId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.friendId })
+            </td>
+        </tr>
+    }
+    
+    </table>

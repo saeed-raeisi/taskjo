@@ -1,0 +1,86 @@
+﻿
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Widget: user widget style 2 -->
+                <div class="card card-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-success">
+                        <div class="widget-user-image">
+                            <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+                        </div>
+                        <!-- /.widget-user-image -->
+                        <h3 class="widget-user-username">@ViewBag.title - @ViewBag.state</h3>
+                        <h5 class="widget-user-desc">   @ViewBag.proejct</h5>
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    وظایف <span class="float-left badge bg-primary">@ViewBag.all_task</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    وظایف ‌ کامل شده <span class="float-left badge bg-success">@ViewBag.done_task</span>
+                                </a>
+                            </li>
+                            
+                                <li class="nav-item">
+                                    <div class="col-md-12 nav-link">
+                                        <a href="/UserPhases/Edit/@ViewBag.phaseId" class="btn btn-block btn-primary btn-sm ">
+                                            ویرایش فاز
+                                        </a>
+                                        <a href="/UserPhases/Delete/@ViewBag.phaseId" class="btn btn-block btn-danger btn-sm">
+                                            حذف فاز
+                                        </a>
+                                    </div>
+
+                                </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.widget-user -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">وظایف</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>وظیفه</th>
+                                <th>پیشرفت</th>
+                                <th style="width: 40px">درصد</th>
+                            </tr>
+                            @Html.Action("GetTask", "UserDashboard", new { id = ViewBag.phaseId })
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <a href="/UserTasks/Create/@ViewBag.phaseId" class="btn btn-sm btn-info float-left">وظیفه جدید</a>
+                        <ul class="pagination pagination-sm m-0 float-right">
+                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.card -->
+
+            </div>
+        </div>
+
+    </div>
+</section>

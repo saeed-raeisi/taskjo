@@ -1,0 +1,73 @@
+﻿@model IEnumerable<taskjo.Models.Phase>
+@{ int rowNo = 0; }
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@(rowNo += 1)</td>
+        <td>
+            <a href="/UserDashboard/ShowTask/@item.phaseId">
+                @item.phaseTitle
+                @if (@item.phaseState == "1")
+                {
+                    <span class="badge badge-success float-left">انجام شده</span>
+                }
+                else if (@item.phaseState == "2")
+                {
+                    <span class="badge badge-warning float-left">در حال انجام</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger float-left">لغو شده</span>
+                }
+
+            </a>
+        </td>
+
+        @if (@ViewBag.percent[rowNo - 1] < 30)
+        {
+            <td>
+                <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-danger" style="width: @ViewBag.percent[rowNo-1]%"></div>
+                </div>
+            </td>
+
+            <td>
+                <span class="badge bg-danger">@ViewBag.percent[rowNo - 1]%</span>
+            </td>
+
+        }
+        else if (@ViewBag.percent[rowNo - 1] < 90)
+        {
+            <td>
+                <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-warning" style="width: @ViewBag.percent[rowNo-1]%"></div>
+                </div>
+            </td>
+
+            <td>
+                <span class="badge bg-warning">@ViewBag.percent[rowNo - 1]%</span>
+            </td>
+
+        }
+        else
+        {
+            <td>
+                <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-success" style="width: @ViewBag.percent[rowNo-1]%"></div>
+                </div>
+            </td>
+
+            <td>
+                <span class="badge bg-success">@ViewBag.percent[rowNo - 1]%</span>
+            </td>
+            
+        }
+
+
+
+    </tr>
+
+}
+
+

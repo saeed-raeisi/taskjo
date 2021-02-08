@@ -1,0 +1,84 @@
+﻿<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Widget: user widget style 2 -->
+                <div class="card card-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-success">
+                        <div class="widget-user-image">
+                            <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+                        </div>
+                        <!-- /.widget-user-image -->
+                        <h3 class="widget-user-username">@ViewBag.title - ViewBag.phase </h3>
+                        <h5 class="widget-user-desc">  وضعیت : @ViewBag.state</h5>
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    پروژه‌ها <span class="float-left badge bg-primary">@ViewBag.all_subTask</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    پروژه‌های کامل شده <span class="float-left badge bg-success">@ViewBag.done_subTask</span>
+                                </a>
+                            </li>
+                           
+                                <li class="nav-item">
+                                    <div class="col-md-12 nav-link">
+                                       
+                                        <a href="/UserTasks/Edit/@ViewBag.taskId" class="btn btn-block btn-primary btn-sm ">
+                                            ویرایش وظیفه
+                                        </a>
+                                        <a href="/UserTasks/Delete/@ViewBag.taskId" class="btn btn-block btn-danger btn-sm">
+                                            حذف وظیفه
+                                        </a>
+                                    </div>
+
+                                </li>
+                            
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.widget-user -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="ion ion-clipboard mr-1"></i>
+                            لیست کارها
+                        </h3>
+
+                        <div class="card-tools">
+                            <ul class="pagination pagination-sm">
+                                <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
+                                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                                <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <ul class="todo-list">
+
+                            @Html.Action("GetSubTask", "UserDashboard", new { id = ViewBag.taskId })
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer clearfix">
+                        <a href="/UserSubTasks/Create/@ViewBag.taskId" class="btn btn-sm btn-info float-left">زیر وظیفه جدید</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

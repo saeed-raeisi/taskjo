@@ -1,0 +1,103 @@
+﻿<!-- Content Header (Page header) -->
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark"> @ViewBag.team </h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="/UserDashboard/Index">تیم ها</a></li>
+                    <li class="breadcrumb-item active">@ViewBag.team </li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Widget: user widget style 2 -->
+                <div class="card card-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-success">
+                        <div class="widget-user-image">
+                            <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+                        </div>
+                        <!-- /.widget-user-image -->
+                        <h3 class="widget-user-username">@ViewBag.user - @ViewBag.team</h3>
+                        <h5 class="widget-user-desc"> نقش شما در تیم :  @ViewBag.role</h5>
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    پروژه‌ها <span class="float-left badge bg-primary">@ViewBag.all_project</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    پروژه‌های کامل شده <span class="float-left badge bg-success">@ViewBag.done_project</span>
+                                </a>
+                            </li>
+                            @if (@ViewBag.role == "admin")
+                            {
+                                <li class="nav-item">
+                                    <div class="col-md-12 nav-link">
+                                        <a href="/UserTeamMembers/index/@ViewBag.userId " class="btn btn-block btn-success btn-sm ">
+                                           مدیریت اعضا
+                                        </a>
+                                        <a href="/UserTeams/Edit/@ViewBag.teamId" class="btn btn-block btn-primary btn-sm ">
+                                            ویرایش تیم
+                                        </a>
+                                        <a href="/UserProjects/Delete/@ViewBag.teamId" class="btn btn-block btn-danger btn-sm">
+                                            حذف تیم
+                                        </a>
+                                    </div>
+
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.widget-user -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">پروژه ها </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-widget="remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <ul class="products-list product-list-in-card pl-2 pr-2">
+
+                            @Html.Action("GetProject", "UserDashboard", new { id = ViewBag.teamId })
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <a href="/UserProjects/Create/@ViewBag.teamId" class="btn btn-sm btn-info float-left">پروژه جدید</a>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</section>
