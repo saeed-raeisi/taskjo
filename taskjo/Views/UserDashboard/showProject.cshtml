@@ -26,7 +26,7 @@
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header bg-success">
                         <div class="widget-user-image">
-                            <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+                            <img class="img-circle elevation-2" src="~/ImgLogo/@ViewBag.teamLogo" alt="User Avatar">
                         </div>
                         <!-- /.widget-user-image -->
                         <h3 class="widget-user-username">@ViewBag.user - @ViewBag.team</h3>
@@ -44,7 +44,7 @@
                                     پروژه‌های کامل شده <span class="float-left badge bg-success">@ViewBag.done_project</span>
                                 </a>
                             </li>
-                            @if (@ViewBag.role == "admin")
+                            @if (@ViewBag.role == "Admin")
                             {
                                 <li class="nav-item">
                                     <div class="col-md-12 nav-link">
@@ -54,7 +54,7 @@
                                         <a href="/UserTeams/Edit/@ViewBag.teamId" class="btn btn-block btn-primary btn-sm ">
                                             ویرایش تیم
                                         </a>
-                                        <a href="/UserProjects/Delete/@ViewBag.teamId" class="btn btn-block btn-danger btn-sm">
+                                        <a href="/UserTeams/Delete/@ViewBag.teamId" class="btn btn-block btn-danger btn-sm">
                                             حذف تیم
                                         </a>
                                     </div>

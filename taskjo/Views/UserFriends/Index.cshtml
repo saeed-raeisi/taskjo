@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<taskjo.Models.Friend>
 
 @{
-    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+    //Layout = "~/Views/Shared/DefaultLayout.cshtml";
+    Layout = "";
 }
-    <p>
-        @Html.ActionLink("دوست جدید", "Create")
-    </p>
-    <table class="table">
+
+
+@Html.Action("showFriend", "UserDashboard", new { id = ViewBag.id })
+@*<table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.userId)
@@ -19,7 +20,7 @@
             </th>
             <th></th>
         </tr>
-    
+
     @foreach (var item in Model) {
         <tr>
             <td>
@@ -38,5 +39,5 @@
             </td>
         </tr>
     }
-    
-    </table>
+
+    </table>*@

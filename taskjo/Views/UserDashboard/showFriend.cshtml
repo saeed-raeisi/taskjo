@@ -1,0 +1,42 @@
+﻿@model IEnumerable<taskjo.Models.MyUsers>
+
+@{
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("دوست جدید", "Create", "UserFriends")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lname)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lname)
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

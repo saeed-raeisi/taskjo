@@ -13,12 +13,13 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("ایجاد عضو جدید", "Create")
     </p>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+                @*@Html.DisplayNameFor(model => model.ApplicationUser.Email)*@
+                <label>ایمیل</label>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.team.teamName)
@@ -41,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.memberRole)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.teamMemberId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.teamMemberId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.teamMemberId })
+                @Html.ActionLink("ویرایش", "Edit", new { id=item.teamMemberId }) |
+                @Html.ActionLink("جزئیات", "Details", new { id=item.teamMemberId }) |
+                @Html.ActionLink("حذف", "Delete", new { id=item.teamMemberId })
             </td>
         </tr>
     }

@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdentitySample.Models;
 using taskjo.Models;
+using Microsoft.AspNet.Identity;
 
 namespace taskjo.Controllers
 {
@@ -17,8 +18,9 @@ namespace taskjo.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: UserFriends
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string id)
         {
+            ViewBag.id =id;
             return View(await db.Friends.ToListAsync());
         }
 
@@ -50,13 +52,53 @@ namespace taskjo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "friendId,userId,userId_friend,is_active")] Friend friend)
         {
-            if (ModelState.IsValid)
+            var userId = User.Identity.GetUserId();
+            friend.userId = userId;
+            string notExist = "start";
+            Boolean flag = true;
+            // email find or error
+            try
+            {
+                var email = db.Users.Where(u => u.Email == friend.userId_friend).Select(u => new { u.Email, u.Id }).Single();
+                friend.userId_friend = email.Id;
+                try
+                {
+                    var userChk = db.Friends.Where(u => u.userId == userId && u.userId_friend == email.Id)
+                        .Select(u=> new { u.userId,u.userId_friend}).Single();
+                    System.Diagnostics.Debug.WriteLine(userChk.userId);
+                    System.Diagnostics.Debug.WriteLine(userChk.userId_friend);
+
+
+                }
+                catch (Exception)
+                {
+
+                    flag = false;
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                notExist = null;
+            }
+            
+            if (notExist == null)
+            {
+                System.Diagnostics.Debug.WriteLine("error");
+                ModelState.AddModelError("userId_friend", "ایمیل پیدا نشد :)");
+            }
+            else if(flag)
+            {
+                ModelState.AddModelError("userId_friend", "قبلا ثبت شده است :(");
+            }
+            else if (ModelState.IsValid)
             {
                 db.Friends.Add(friend);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","UserDashboard");
             }
-
+            
             return View(friend);
         }
 

@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<taskjo.Models.Team>
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+    //Layout = "";
 }
 
 <!DOCTYPE html>
@@ -10,12 +12,85 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <meta charset="utf-8">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/tableManager.js"></script>
+    <style type="text/css">
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 120px;
+            max-height: 120px;
+        }
+
+        table, th, td {
+            border: 1px solid #bbb;
+            text-align: right;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+        button {
+            cursor: pointer;
+        }
+        /*Initial style sort*/
+        .tablemanager th.sorterHeader {
+            cursor: pointer;
+        }
+
+            .tablemanager th.sorterHeader:after {
+                content: " \f0dc";
+                font-family: "FontAwesome";
+            }
+        /*Style sort desc*/
+        .tablemanager th.sortingDesc:after {
+            content: " \f0dd";
+            font-family: "FontAwesome";
+        }
+        /*Style sort asc*/
+        .tablemanager th.sortingAsc:after {
+            content: " \f0de";
+            font-family: "FontAwesome";
+        }
+        /*Style disabled*/
+        .tablemanager th.disableSort {
+        }
+
+        #for_numrows {
+            padding: 10px;
+            float: left;
+        }
+
+        #for_filter_by {
+            padding: 10px;
+            float: right;
+        }
+
+        #pagesControllers {
+            display: block;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("تیم جدید", "Create")
     </p>
-    <table class="table">
+    <table class="tablemanager">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.teamName)
@@ -31,29 +106,52 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.teamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.teamDesc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.teamStartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.teamLogo)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.teamId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.teamId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.teamId })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teamDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teamStartDate)
+                </td>
+                <td>
+                    <img class="card-img-top" src="~/ImgLogo/@item.teamLogo" alt="Card image cap" style=" max-width: 120px; max-height: 120px;">
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.teamId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.teamId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.teamId })
+                </td>
+            </tr>
+        }
+
     </table>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/tableManager.js"></script>
+    <script>
+        $('.tablemanager').tablemanager({
+            firstSort: [3, 'asc'],
+            appendFilterby: true,
+            debug: true,
+            vocabulary: {
+                voc_filter_by: 'فیلتر به  وسیله',
+                voc_type_here_filter: 'فیلتر',
+                voc_show_rows: 'تعداد سطرهای هر صفحه'
+
+            },
+            pagination: true,
+            showrows: [5, 10, 20, 50, 100],
+        });
+    </script>
+
 </body>
 </html>

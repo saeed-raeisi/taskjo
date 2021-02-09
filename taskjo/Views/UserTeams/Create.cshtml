@@ -10,7 +10,8 @@
             <div class="card-header">
                 <h3 class="card-title">ایجاد تیم</h3>
             </div>
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Create", "UserTeams", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -44,7 +45,8 @@
                         <label for="exampleInputFile">ارسال فایل</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                <input type="file" class="custom-file-input" id="exampleInputFile" name="uploadImage">
+                                @*<input type="file" name="uploadImage" />*@
                                 <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
                             </div>
                         </div>

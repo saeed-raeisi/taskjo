@@ -12,10 +12,10 @@
     <title>Create</title>
 </head>
 <body>
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>SubTask</h4>
             <hr />
@@ -27,15 +27,17 @@
                     @Html.ValidationMessageFor(model => model.subTaskName, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.subTascDesc, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.subTascDesc, new { htmlAttributes = new { @class = "form-control" } })
+                    @*@Html.EditorFor(model => model.subTascDesc, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextAreaFor(model => model.subTascDesc, new { @class = "ckeditor", @id = "sampleEditor" })
                     @Html.ValidationMessageFor(model => model.subTascDesc, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
+
             <div class="form-group">
                 @Html.LabelFor(model => model.subTaskState, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -43,7 +45,7 @@
                     @Html.ValidationMessageFor(model => model.subTaskState, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.is_active, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -53,7 +55,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.taskId, "taskId", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -61,7 +63,7 @@
                     @Html.ValidationMessageFor(model => model.taskId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -69,7 +71,7 @@
                     @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -77,9 +79,25 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
+    <!-- Bootstrap WYSIHTML5 -->
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/CkEditor/ckeditor.js"></script>
+        <script src="~/CkEditor/adapters/jquery.js"></script>
+        <script>
+            $(function () {
+                $('#sampleEditor').ckeditor();
+            });
+        </script>
+    }
+
+    }
+
 </body>
+
 </html>

@@ -31,6 +31,7 @@ namespace taskjo.Models
         [DisplayName("شماره تماس")]
         public string mobile { get; set; }
         [DisplayName("تاریخ تولد")]
+        [UIHint("datepicker")]
         public DateTime? birthdate { get; set; }
 
         //[EmailAddress]

@@ -5,16 +5,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace taskjo.Models
 {
     public class SubTask
     {
        
-
-
-
-
         [Key]
         public int subtaskId { get; set; }
         [DisplayName("نام زیر وظیفه")]
@@ -23,6 +20,7 @@ namespace taskjo.Models
         [DataType(DataType.MultilineText)]
         [DisplayName("توضیحات زیر وظیفه")]
         [StringLength(150)]
+        [AllowHtml]
         public string subTascDesc { get; set; }
         [DisplayName("وضعیت زیر وظیفه")]
         public string subTaskState { get; set; }

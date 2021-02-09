@@ -47,7 +47,8 @@
                 @Html.DisplayFor(modelItem => item.subTaskName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.subTascDesc)
+                @*@Html.DisplayFor(modelItem => item.subTascDesc)*@
+                @Html.Raw(item.subTascDesc)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.subTaskState)

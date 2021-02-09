@@ -27,6 +27,13 @@ namespace taskjo.Controllers
             return View();
         }
 
+
+        public ActionResult showFriend(string id)
+        {
+            var list = db.MyUsers.Join(db.Friends.Where(d => d.userId == id), u => u.UserId, y => y.userId_friend, (u, y) => u).ToList();
+
+            return PartialView(list);
+        }
         public ActionResult getUserId()
         {
             return Content(User.Identity.GetUserId());
@@ -104,7 +111,9 @@ namespace taskjo.Controllers
             ViewBag.all_project = db.Project.Where(u => u.teamId == id).Count();
             ViewBag.done_project = db.Project.Where(u => u.teamId == id && u.projectSate=="1").Count();
 
-            // team logo
+             var img = db.Team.Where(u => u.teamId == id).Select(u => new { u.teamLogo }).Single();
+            ViewBag.teamLogo = img.teamLogo;
+
             // if role == admin  edit and delte team 
 
             return View();
